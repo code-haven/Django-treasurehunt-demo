@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Level - {{ level_object.level_number }} {% endblock %}
+
+{% block content %}
+    <div>
+        <h1 align="center">Level - {{ level_object.level_number }}</h1>
+        <br>
+        <div>
+            <img class='img-responsive' src='{{ level_object.image.url }}'><br>
+            <form method="post"> {% csrf_token %}
+                <div class="form-inline" align="center">
+                  <label>Enter Answer</label>
+                  <input type="text" name="answer" class="form-control"/>
+                    <button type="submit" class="btn btn-primary form-control">Submit</button>
+               </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}
