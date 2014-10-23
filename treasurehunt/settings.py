@@ -112,6 +112,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'wsgi/static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'wsgi/media')
+
 #STATICFILES_FINDERS = (
  #   'django.contrib.staticfiles.finders.FileSystemFinder',
  #   'django.contrib.staticfiles.finders.AppDirectoriesFinder',
