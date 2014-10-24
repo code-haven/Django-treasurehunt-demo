@@ -132,4 +132,3 @@ TEMPLATE_DIRS = (
 ACCOUNT_ACTIVATION_DAYS = 7
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
