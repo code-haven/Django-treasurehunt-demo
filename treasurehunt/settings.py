@@ -114,7 +114,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'wsgi/static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = MEDIA_ROOT = os.environ.get('OPENSHIFT_DATA_DIR', '')
+MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR', ''),'media')
 
 #STATICFILES_FINDERS = (
  #   'django.contrib.staticfiles.finders.FileSystemFinder',
