@@ -5,7 +5,7 @@ from django.db.models.signals import post_save
 
 class Level(models.Model):
     level_number = models.IntegerField(unique=True)
-    image = models.ImageField(upload_to='/media/levels')
+    image = models.ImageField(upload_to='levels')
     answer = models.CharField(max_length=60)
 
     def __str__(self):
