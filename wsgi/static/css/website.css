@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 body {
-    background: url('/static/images/background.jpg') repeat;
+    background: url('/static/images/background.jpg');
     font-family: 'Open Sans', sans-serif;
 }
 .content {
@@ -13,6 +13,16 @@ body {
     box-shadow: 1px 1px 1px solid;
 }
 
+.shadow {
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+.content {
+    background: none repeat scroll 0% 0% #222326;
+    margin: 0px 20px 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 2%;
+}
 .start-page {
     padding: 20px;
     margin: 0 auto;
