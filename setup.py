@@ -1,9 +1,9 @@
 from setuptools import setup
 
-setup(name='django 1.7 on Red Hat Openshift',
+setup(name='Django-oth',
     version='0.1',
-    description='django on OpenShift',
-    author='Your Name',
-    author_email='example@example.com',
-    url='https://github.com/jfmatth/openshift-django17',
+    description='An online treasurehunt engine built using Django',
+    author='Abhinav I',
+    author_email='abhinav.qd@gmail.com',
+    url='https://github.com/code-haven/django-treasurehunt',
 )

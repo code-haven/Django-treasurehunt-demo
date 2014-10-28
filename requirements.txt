@@ -3,3 +3,5 @@ Pillow==2.6.1
 django-bootstrap3==4.11.0
 django-registration-redux==1.1
 dj-static
+django-toolbelt==0.0.1
+

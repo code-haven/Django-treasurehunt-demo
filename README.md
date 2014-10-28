@@ -1,75 +1,38 @@
-Django v1.7 on OpenShift v3.2014
-=
-This git repository helps you get up and running quickly with django v1.7 and Openshift March 2014 release.
-###Features
-* Ready to use for local development
-* Easy to push to Openshift
-* Configured for PostgreSQL 9.2
-* Minimal changes to default django 1.7 installation
-* Names follow the django 1.7x tutorial
-* Uses new folder layout from Openshift March 2014 release
-* Allows for debug mode on Openshift with the help of an environment variable.
+django-oth-demo
+==
 
-###How to use this repository
-- Create an account at https://www.openshift.com
-- Install the RHC client tools if you have not already done so.
-```
-sudo gem install rhc
-rhc setup
-```
-- Create a Python 2.7 application
-```
-rhc app create django python-2.7
-```
-- Add the PostgreSQL 9.2 cartridge
-```
-rhc add-cartridge postgresql-9.2 --app django
-```
-- Add this upstream repo
-```
-cd django
-git remote add upstream -m master https://github.com/jfmatth/openshift-django17.git
-git pull -s recursive -X theirs upstream master
-```
-- Set the WSGI application to django's built in WSGI application.
-```
-rhc env set OPENSHIFT_PYTHON_WSGI_APPLICATION=mysite/wsgi.py --app django
-```
-- Push the repo upstream
-```
-git push
-```
-- SSH into the application to create a django superuser
-```
-python app-root/repo/manage.py createsuperuser
-```
-- Now use your browser to connect to the Admin site.
+What is django-oth?
+--
+django-oth is an online treasure hunt engine built using Django.
 
-### Running locally and the django tutorial
-This repository was designed to allow you to quickly develop and deploy a website to Openshift.  For local development, make sure you have the following setup:
+Okay, but what exactly is an online treasure hunt?
+--
+>An online treasure hunt is one type of treasure hunt where players or treasure hunters search for answers to the questions given online. The answers or clues can be hidden anywhere on the Internet. Players use clues and hints given along with the question to get the answer. Once they enter the correct answer they are presented with the next question until they have finished all the questions. The  players who complete all the questions
 
-- Virtualenv for this instance of python / django.
-- pip (should be installed with virtualenv)
+Here's a live demo
+--
+http://oth-thebinaryrealm.rhcloud.com/
 
-Once you have those installed, install the requirements for this repository:
-```
-pip install -r requirements.txt
-```
 
-This will install django 1.7 on your local machine.
+Running Locally
+--
 
-Once you have django installed, you can continue the tutorial from here https://docs.djangoproject.com/en/1.7/intro/tutorial01/#database-setup, although the default database and application configuration should be sufficient.
++ Clone this repo :
+> git clone https://github.com/code-haven/Django-treasurehunt-demo.git
 
-### Configuration details
-When a git push is done, the .openshift/action_hooks/deploy is executed.  This script does two things:
++ Install dependencies by running 
+> pip install -r requirements.txt
 
-1.  Runs python manage.py migrate to update any changes to the Schema
-2.  Runs python manage.py collectstatic to move all necessary static files into /wsgi/static
++ Apply migrations
+> python manage.py makemigrations treasure_hunt<br>
+> python manage.py migrate
 
-#### Debugging mode and Openshift
-By default, debug mode is off when pushed to Openshift.  However, if you'd like to turn on debugging (settings.DEBUG) while running on Openshift, you can set the environment variable DEBUG to True and then stop and start your application, and debugging will be turned on.
 
-``` rhc env set DEBUG=True```
++ Run the server
+> python manage.py runserver 
 
-#### Notes on compatibility
-This has not been tested thorougly with Python 3.  I'd love to have someone try that out for this repo.
+Now you will have the demo running at http://localhost:8000/
+
+License
+==
+MIT

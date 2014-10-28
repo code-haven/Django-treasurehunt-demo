@@ -1,35 +1,22 @@
 """
 Django settings for treasurehunt project.
 
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import socket
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
-# openshift is our PAAS for now.
 ON_PAAS = 'OPENSHIFT_REPO_DIR' in os.environ
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 if ON_PAAS:
     SECRET_KEY = os.environ['OPENSHIFT_SECRET_TOKEN']
 else:
-    # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = ')_7av^!cy(wfx=k#3*7x+(=j^fzv+ot^1@sh9s9t=8$bu@r(z$'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# adjust to turn off when on Openshift, but allow an environment variable to override on PAAS
+
+# Adjust to turn off when on Openshift, but allow an environment variable to override on PAAS
 DEBUG = not ON_PAAS
 DEBUG = DEBUG or 'DEBUG' in os.environ
 if ON_PAAS and DEBUG:
@@ -55,6 +42,7 @@ INSTALLED_APPS = (
     'treasure_hunt',
     'registration',
     'bootstrap3',
+    'debug_toolbar.apps.DebugToolbarConfig',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,6 +52,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'treasurehunt.urls'
@@ -71,8 +60,7 @@ ROOT_URLCONF = 'treasurehunt.urls'
 WSGI_APPLICATION = 'treasurehunt.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
+# Database settings
 
 if ON_PAAS:
     DATABASES = {
@@ -86,7 +74,7 @@ if ON_PAAS:
         }
     }
 else:
-    # stock django
+    # Database for testing locally
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -95,7 +83,6 @@ else:
     }
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -109,23 +96,23 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'wsgi/static')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'wsgi/media')
 MEDIA_URL = '/media/'
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
+
 #STATICFILES_FINDERS = (
  #   'django.contrib.staticfiles.finders.FileSystemFinder',
  #   'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #
 #)
-
-
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
-)
 
 
 # Django-Registration settings
