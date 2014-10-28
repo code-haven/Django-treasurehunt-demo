@@ -1,9 +1,9 @@
-django-oth-demo
+django-treasurehunt-demo
 ==
 
-What is django-oth?
+What is django-treasurehunt?
 --
-django-oth is an online treasure hunt engine built using Django.
+django-treasurehunt is an online treasure hunt engine built using Django.
 
 Okay, but what exactly is an online treasure hunt?
 --
