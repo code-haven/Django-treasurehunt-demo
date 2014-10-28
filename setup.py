@@ -1,7 +1,7 @@
 from setuptools import setup
 
-setup(name='Django-oth',
-    version='0.1',
+setup(name='django-treasurehunt',
+    version='0.2',
     description='An online treasurehunt engine built using Django',
     author='Abhinav I',
     author_email='abhinav.qd@gmail.com',
