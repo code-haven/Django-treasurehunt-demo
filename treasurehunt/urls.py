@@ -13,11 +13,5 @@ urlpatterns = patterns(
     url(r'', include('registration.backends.simple.urls'))
 ) 
 
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns += patterns('',
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-    )
-
 
 

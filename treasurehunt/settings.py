@@ -42,7 +42,6 @@ INSTALLED_APPS = (
     'treasure_hunt',
     'registration',
     'bootstrap3',
-    'debug_toolbar.apps.DebugToolbarConfig',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,7 +51,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'treasurehunt.urls'
