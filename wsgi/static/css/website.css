@@ -13,9 +13,15 @@ body {
     box-shadow: 1px 1px 1px solid;
 }
 
+.start-page {
+    padding: 20px;
+    margin: 0 auto;
+}
+
 p {
    text-align: center;
 }
+
 
 img {
     max-width: 100%;

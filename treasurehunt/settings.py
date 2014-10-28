@@ -106,13 +106,6 @@ TEMPLATE_DIRS = (
 )
 
 
-#STATICFILES_FINDERS = (
- #   'django.contrib.staticfiles.finders.FileSystemFinder',
- #   'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#
-#)
-
-
 # Django-Registration settings
 ACCOUNT_ACTIVATION_DAYS = 7
 LOGIN_URL = '/login/'
